@@ -2,13 +2,34 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Comparative MLB Webpage</title>
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Homemade+Apple" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   <script src="main.js"></script>
 </head>
 <body>
-  
+
+  <div class="jumbotron">
+    <h1 id="headertext">Comparative MLB National League Statistics</h1>
+    <hr>
+    <p id="jumbotext">Stuff. Things</p>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2" id="interior-box">
+        <h5>Select Team One:</h5>
+        <select id="dropdown-one" onchange="optionChanged(this.value)"></select>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4"></div>
+      <div class="col-md-2" id="interior-box">
+        <h5>Select Team Two:</h5>
+        <select id="dropdown-two" onchange="optionChanged(this.value)"></select>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

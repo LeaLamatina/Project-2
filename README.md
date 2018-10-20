@@ -1,5 +1,5 @@
 # Project 2
 
-Jenn, Jérôme, Emma, Lea
+Jen, Jérôme, Emma, Lea
 
-**Comparative MLB Statitics Dashboard**
+**Comparative MLB Statistics Dashboard**
