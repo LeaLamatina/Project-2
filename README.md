@@ -14,6 +14,8 @@ Description: A web app that explores and shows baseball data and statistics for 
 
 Data: CSV files pulled from https://www.baseball-reference.com
 
-Techniques and Tools: HTML, CSS, Flask, JavaScript, SQLite
+Techniques and Tools: HTML, CSS, Flask, JavaScript, SQLite, D3, Plotly, Drop.js
 
-Data Shortcomings: A lot of data and 
+Visualizations: Comparitive Horizontal Bar Graph, Radar Graph, Area (Line) Graph
+
+Data Shortcomings: A lot of data to look through to find the relevant stats that apply to our visualizations
