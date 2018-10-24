@@ -1,9 +1,9 @@
 /* ====GENERIC TABLE CSS STYLING==== */
 body {
   /* background-image: url("https://longreadsblog.files.wordpress.com/2017/10/ap_080229017662-e1507299660449.jpg?w=1680"); */
-  background-image: url("https://cdn-images-1.medium.com/max/2000/0*AlaupL3lWZ-p5aFy.");
-  background-repeat: no-repeat;
-  background-position: left top;
+  background-image: url("https://cdn-images-1.medium.com/max/2000/0*AlaupL3lWZ-p5aFy."), url("http://www.uidownload.com/files/136/891/644/stock-vector-patterned-background-thumb.jpg");
+  background-repeat: no-repeat, repeat;
+  background-position: center top, left top;
 }
 
 .jumbotron {
@@ -17,7 +17,7 @@ body {
 #hr {
   margin: 0px -40% auto;
   border: 0;
-  width: 80%;
+  width: 97.5%;
   color: rgb(230, 230, 230);
   background-color: rgb(255, 255, 255);
   height: 2px;

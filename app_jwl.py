@@ -10,31 +10,42 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
+import mysql.connector
+
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 # ===================
 #  Database Setup
 # ===================
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/mlb-stats.sqlite"
-db = SQLAlchemy(app)
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/mlb-stats.sqlite"
+# db = SQLAlchemy(app)
 
 # reflect an existing database into a new model
-Base = automap_base()
+# Base = automap_base()
 # reflect the tables
-Base.prepare(db.engine, reflect=True)
+# Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
-Samples_Metadata = Base.classes.sample_metadata
-Samples = Base.classes.samples
+# Samples_Metadata = Base.classes.sample_metadata
+# Samples = Base.classes.samples
+
+# mysql
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="jwh.laforest",
+  passwd="waihung"
+)
+
+print(mydb)
 
 # connecting app to homepage
-@app.route("/")
-def index():
-  return render_template("index.html")
+# @app.route("/")
+# def index():
+#   return render_template("index.html")
 
-if __name__ == "__main__":
-  app.run()
+# if __name__ == "__main__":
+#   app.run()
