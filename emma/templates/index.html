@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col-md-2" id="interior-box">
         <h5 id="dropdown-text" style="text-align:left;">Select Team One:</h5>
-        <select id="dropdown-one" onchange="optionChanged(this.value)"></select>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
       </div>
       <div class="col-md-4" id="interior-box">
         <div class="panel panel-primary">
@@ -42,7 +42,7 @@
       </div>
       <div class="col-md-2" id="interior-box">
         <h5 id="dropdown-text" style="text-align:right;">Select Team Two:</h5>
-        <select id="dropdown-two" onchange="optionChanged(this.value)"></select>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
       </div>
     </div>
       <hr>
@@ -55,5 +55,9 @@
         <h2>Line Chart</h2>
     </div>
   </div>
+    <!-- input javascript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app_emma.js') }}"></script>
 </body>
 </html>
