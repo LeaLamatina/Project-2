@@ -1,0 +1,62 @@
+/* ====GENERIC TABLE CSS STYLING==== */
+body {
+  /* background-image: url("https://longreadsblog.files.wordpress.com/2017/10/ap_080229017662-e1507299660449.jpg?w=1680"); */
+  background-image: url("https://cdn-images-1.medium.com/max/2000/0*AlaupL3lWZ-p5aFy."), url("http://www.uidownload.com/files/136/891/644/stock-vector-patterned-background-thumb.jpg");
+  background-repeat: no-repeat, repeat;
+  background-position: center top, left top;
+}
+
+.jumbotron {
+  position: relative;
+  padding: 5px 30px 15px 30px;
+  background: linear-gradient(to right, rgb(22, 22, 22) , rgb(39, 39, 39));
+  margin: 0px 0px 10px 0px;
+  opacity: 0.9;
+}
+
+#hr {
+  margin: 0px -40% auto;
+  border: 0;
+  width: 97.5%;
+  color: rgb(230, 230, 230);
+  background-color: rgb(255, 255, 255);
+  height: 2px;
+  box-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15)
+}
+
+#box-outline {
+  border-radius: 8px;
+
+}
+
+/* ====TEXT CSS STYLING==== */
+#header-text {
+  font: 400 100px/1.3 'Lobster Two', Helvetica, sans-serif;
+  font-size: 50px;
+  color: white;
+  border: black;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+}
+
+#dropdown-text {
+  color: white;
+  text-shadow: 2px 2px 3px rgb(44, 44, 44), 2px 0px 25px rgb(102, 102, 102);
+}
+
+#title-text {
+  font: 400 100px/1.3 'Lobster Two', Helvetica, sans-serif;
+  font-size: 30px;
+  color: black;
+  border: white;
+  letter-spacing: 3px;
+  text-align: center;
+  text-shadow: 2px 2px 3px rgb(63, 63, 63), 2px 0px 25px rgb(24, 24, 24);
+}
+
+/* font-family: 'Cabin Sketch', cursive;
+color: white;
+font-size: 50px;
+position: relative;
+text-align: left;
+margin: 0px 0px 10px 0px; */
