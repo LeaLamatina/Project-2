@@ -13,6 +13,7 @@ from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
+app = Flask(__name__)
 
 # ===================
 #  Database Setup
@@ -31,8 +32,7 @@ try:
   with open("ConsolidatedPlayers.csv") as PlayerStats:
     players = list(csv.reader(PlayerStats))
 except IOError as e:
-  print >>sys.stderr, "error: %s" % (e)
-  sys.exit(1)
+  print("error loading file")
 
 # Team_Metadata = Base.classes.team_metadata
 # Team  = Base.classes.team
@@ -40,7 +40,6 @@ except IOError as e:
 # ===================
 # Flask Setup
 # ===================
-app = Flask(__name__)
 
 # connecting app to homepage
 @app.route("/")
@@ -48,8 +47,8 @@ def index():
   return render_template("index.html")
 
 # returns team names to be populated into dropdowns
-@app.route("/teams")
-def teams():
+# @app.route("/teams")
+# def teams():
   #@TODO - EVERYTHING
 
 if __name__ == "__main__":
