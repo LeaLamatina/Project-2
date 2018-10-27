@@ -1,12 +1,41 @@
-function buildteamdata(team) {
+// function buildteamdata(team) {
+
+//   // @TODO: Complete the following function that builds the metadata panel
+//   // Create the url for metadata
+//   const team_url = "./baseball/" + team;
+
+//   // Use `.html("") to clear any existing metadata
+//   d3.select('#panel-two').html('');
+//   d3.select('#panel-one').html('');
+//   // Use d3 to select the panel with id of `#teaminfo`
+//   console.log(team_url)
+  
+//   // Use `d3.json` to fetch the metadata for a sample
+//   d3.json(team_url).then(function(data) {
+//     console.log(data);
+//     console.log(data['Tm']);
+    
+//     teamdata1 = d3.select("#teaminfo");
+    
+//     // Use `Object.entries` to add each key and value pair to the panel
+//     // Hint: Inside the loop, you will need to use d3 to append new
+//     // tags for each key-value in the metadata.
+//     Object.entries(data).forEach(([key, value]) => {
+//       var cell = teamdata.append("p");
+//       cell.text(key + ": " + value);
+//     });
+
+//   });
+// }  
+function buildPanel1(team) {
 
   // @TODO: Complete the following function that builds the metadata panel
   // Create the url for metadata
   const team_url = "./baseball/" + team;
 
   // Use `.html("") to clear any existing metadata
-  d3.select('#teaminfo').html('');
-
+  d3.select('#panel-one').html('');
+  
   // Use d3 to select the panel with id of `#teaminfo`
   console.log(team_url)
   
@@ -15,51 +44,69 @@ function buildteamdata(team) {
     console.log(data);
     console.log(data['Tm']);
     
-    teamdata = d3.select("#teaminfo");
+    teamdata = d3.select("#panel-one");
     
+  
     // Use `Object.entries` to add each key and value pair to the panel
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
     Object.entries(data).forEach(([key, value]) => {
-      var cell = teamdata.append("p");
-      cell.text(key + ": " + value);
+      //var cell = teamdata.append("p");
+      teamdata.append("p").text(key + ": " + value);
+      
     });
 
   });
-  // BONUS: Build the Gauge Chart
-   // buildGauge(data.WFREQ);
+
   
-   
+  
 }
 
-/*
-function buildCharts_01(team) {
-  // Create the url for sample data
-  const sample_url = "./samples/" + team;  
-  console.log(sample_url);
+  
+  
+  
+  
+  
+  function buildPanel2(team) {
 
-  // Use `.html("") to clear any existing metadata
-  d3.select('#pie').html('');
-  d3.select('#gauge').html('');
-  d3.select('#bubble').html('');
+    // @TODO: Complete the following function that builds the metadata panel
+    // Create the url for metadata
+    const team_url = "./baseball/" + team;
 
-  // Use `d3.json` to fetch the data for a sample
-  d3.json(sample_url).then(function(data) {
-    console.log(data);
+    // Use `.html("") to clear any existing metadata
     
-    otu_ids_array = data['otu_ids'];
-    sv = data["sample_values"];
+    d3.select('#panel-two').html('');
+    // Use d3 to select the panel with id of `#teaminfo`
+    console.log(team_url)
+    
+    // Use `d3.json` to fetch the metadata for a sample
+    d3.json(team_url).then(function(data) {
+      console.log(data);
+      console.log(data['Tm']);
+      
 
-    var otu_ids_array_id = otu_ids_array.map(function (ids, i) {
-      return [ids, sv[i]];
+      teamdata = d3.select("#panel-two");
+    
+      // Use `Object.entries` to add each key and value pair to the panel
+      // Hint: Inside the loop, you will need to use d3 to append new
+      // tags for each key-value in the metadata.
+      Object.entries(data).forEach(([key, value]) => {
+        //var cell = teamdata.append("p");
+
+        teamdata.append("p").text(key + ": " + value);
+      });
+
     });
 
-    otu_ids_array_id.sort(function (otu_ids_array, sv) {
-      return otu_ids_array[1] > sv[1] ? -1 : 1;
-    });
+    
+    
+  }
 
-    var top10 = otu_ids_array_id.slice(0, 9);
-    console.log(top10);
+/*
+
+
+
+ 
     
     y = []
     z = []
@@ -179,7 +226,7 @@ function buildCharts_01(team) {
 
 function init() {
   // Grab a reference to the dropdown select element
-  var selector = d3.selectAll("#selDataset");
+  var selector = d3.selectAll("#selDataset1");
   
   // Use the list of sample names to populate the select options
 
@@ -194,10 +241,11 @@ function init() {
   
     // Use the first sample from the list to build the initial plots
     const firstTeam = teamNames[0];
+    const SecondTeam = teamNames[1];
     console.log(firstTeam);
     //buildCharts(firstTeam);
-    buildteamdata(firstTeam);
-    
+    buildPanel1(firstTeam);
+    buildPanel2(SecondTeam);
   });
 }
 
@@ -206,8 +254,8 @@ function optionChanged(newTeam) {
   
   // Fetch new data each time a new sample is selected
   // buildCharts(newTeam);
-  buildteamdata(newTeam);
-  
+  buildPanel1(newTeam);
+  buildPanel2(newTeam);
 }
 
 
