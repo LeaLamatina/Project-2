@@ -66,6 +66,8 @@ function buildPanel2(team) {
   }
 
 
+  
+
 
 function init() {
   // Grab a reference to the dropdown select element
