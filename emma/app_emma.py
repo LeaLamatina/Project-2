@@ -88,8 +88,8 @@ Base.prepare(db.engine, reflect=True)
 
 print('check')
 # Save references to each table
-baseBALLtest = Base.classes.baseballtest
-consolidatedPlayers = Base.classes.consolidatedplayers
+baseBALLtest = Base.classes.BASEBALLtest
+
 
 # connecting app to homepage
 @app.route("/")
@@ -101,33 +101,48 @@ def teams():
   stmt = db.session.query(baseBALLtest).statement
   df = pd.read_sql_query(stmt, db.session.bind)
   # return a list of the teamnames
-  return jsonify(list(df['Tm'][0:len(df)-1]))
+  return jsonify(list(df['Tm']))
 
-@app.route("/baseball/<team>")
+@app.route("/baseballteam/<team>")
 def BASEBALLtest(team):
   sel = [
     baseBALLtest.Tm,
-    baseBALLtest.Bat_BA,
-    baseBALLtest.Bat_OBP,
-    baseBALLtest.BatSLG,
-    baseBALLtest.Bat_OPS,
-   
+    baseBALLtest.whole_name,
+    baseBALLtest.start_year,
+    baseBALLtest.world_championships,
   ]
-  
   results = db.session.query(*sel).filter(baseBALLtest.Tm == team).all()
 
   baseballtest_data= {}
   for result in results:
-
-    baseballtest_data["Bat_BA"] = result[0]
-    baseballtest_data["Bat_OBP"] = result[1]
-    baseballtest_data["BatSLG"] = result[2]
-    baseballtest_data["Bat_OPS"] = result[3]
- 
+    baseballtest_data["Tm"] = result[0]
+    baseballtest_data["whole_name"] = result[1]
+    baseballtest_data["start_year"] = result[2]
+    baseballtest_data["world_championships"] = result[3]
 
   print(baseballtest_data)
   return jsonify(baseballtest_data)
 
+@app.route("/baseballstat/<team>.json")
+def BASEBALLteamstat(team):
+  sel = [
+    baseBALLtest.Tm,
+    baseBALLtest.Bat_BA, 
+    baseBALLtest.Bat_OBP,
+    baseBALLtest.BatSLG,
+    baseBALLtest.Bat_OPS,
+  ]
+  results = db.session.query(*sel).filter(baseBALLtest.Tm == team).all()
+
+  baseballstat_data= {}
+  for result in results:
+    baseballstat_data["Tm"] = result[0]
+    baseballstat_data["Bat_BA"] = result[1]
+    baseballstat_data["Bat_OBP"] = result[2]
+    baseballstat_data["BatSLG"] = result[3]
+    baseballstat_data["Bat_OPS"] = result[4]
+  print(baseballstat_data)
+  return jsonify(baseballstat_data)
 
 if __name__ == "__main__":
   app.run()
