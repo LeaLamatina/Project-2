@@ -1,4 +1,4 @@
-Tm,Whole name,start year,World Championships,Total Payroll,TeamWin,TeamLost,TeamW-L%,pitcherERA,pitcherCG,pitcherIP,pitcherH,pitcherR,pitcherER,BatR/G,BatH,BatR,Bat_BA,Bat_OBP,BatSLG,Bat_OPS
+Tm,whole_name,start_year,world_championships,total_payroll,TeamWin,TeamLost,TeamW-L%,pitcherERA,pitcherCG,pitcherIP,pitcherH,pitcherR,pitcherER,BatR/G,BatH,BatR,Bat_BA,Bat_OBP,BatSLG,Bat_OPS
 ARI,Arizona Diamondbacks,1998,1,141724597,82,80,0.506,3.72,2,1463,1313,644,605,4.28,1283,693,0.235,0.31,0.397,0.707
 ATL,Atlanta Braves,1976,3,130599395,90,72,0.556,3.75,2,1456.2,1236,657,607,4.69,1433,759,0.257,0.324,0.417,0.742
 CHC,Chicago Cubs,1876,3,194259933,95,68,0.583,3.65,1,1476.1,1319,645,598,4.67,1453,761,0.258,0.333,0.41,0.744
