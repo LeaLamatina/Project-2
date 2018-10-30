@@ -51,6 +51,7 @@ body {
   font-size: 24px;
   color: black;
   border: white;
+  opacity: 1;
   letter-spacing: 2px;
   text-align: center;
   text-shadow: 1px 1px 2px rgb(63, 63, 63), 1px 0px 10px rgb(24, 24, 24);
@@ -75,9 +76,9 @@ body {
 	box-shadow: 1px 1px 2px rgb(44, 44, 44), 0 0 25px rgb(102, 102, 102);
 }
 
-#plot-title {
+#radar {
   background-color: lightgrey;
-  opacity: .7;
+  opacity: .5;
   margin: 5px;
 	padding: 5px;
   border-radius: 8px;
@@ -85,6 +86,7 @@ body {
   font-size: 24px;
   color: black;
   border: white;
+  opacity: 1;
   letter-spacing: 2px;
   text-align: center;
   text-shadow: 1px 1px 2px rgb(63, 63, 63), 1px 0px 10px rgb(24, 24, 24);

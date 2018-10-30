@@ -1,9 +1,9 @@
-function buildPanel1(team) {
+ function buildPanel1(team) {
 
   // @TODO: Complete the following function that builds the metadata panel
   // Create the url for team info
   var team_url_1 = "./baseballteam/" + team;
-  //console.log(team_url_1)
+  console.log(team_url_1)
   // Use `.html("") to clear any existing team info
   d3.select('#panel-one').html('');
   
@@ -61,9 +61,9 @@ function buildPanel2(team) {
 
 function buildradarplot(team1, team2){
   // Create the url for team stat
-  //console.log("load team stat")
+  console.log("load team stat")
   var team_url = "./baseballstat/teamstat.json";
-  //console.log(team_url);
+  console.log(team_url);
   
   d3.select('#radarplot').html('');
   
@@ -141,28 +141,25 @@ function buildradarplot(team1, team2){
 // bulid plot for batter
 function build3Dscatterplot(){
   // Create the url for team stat
-  //console.log("load batter stat")
+  console.log("load batter stat")
   var batter_url = "./baseballstat/batterstat.json";
-  //console.log(batter_url);
+  console.log(batter_url);
   
   d3.select('#scatterplot').html('');
   // clear any existing team info
   d3.json(batter_url).then(function(json){
 
-    //console.log(json);
+    console.log(json);
     var x = json['RBI'];
     var y = json['HR'];
     var z = json['H'];
     var Team = json['Tm'];
     var player = json['Player'];
 
-    //console.log(x);
-    //console.log(y);
-    //console.log(z);
-    //console.log(Team); 
-
-    
-    // plot.ly make 3D scatter plot
+    console.log(x);
+    console.log(y);
+    console.log(z);
+    console.log(Team); 
     var data = [
       {
       x: x, 
@@ -205,43 +202,43 @@ function build3Dscatterplot(){
 
   });
 }
-//function that generates index for teammate
-function getAllIndexes(arr, val) {
-  var indexes = [], i = -1;
-  while ((i = arr.indexOf(val, i+1)) != -1){
-      indexes.push(i);
-  }
-  return indexes;
-}
-//function for selecting multiple player by their team
-function extractAllIndexes(arr, idxs) {
-  var results = [];
-  for(var i = 0; i < idxs.length; i++){
-    results.push(arr[idxs[i]]);
-
-  }
-  return results;
-}
 
 function build3Dscatterplotteam(team1, team2){
   // Create the url for team stat
-  //console.log("load batter stat")
+  console.log("load batter stat")
   var batter_url = "./baseballstat/batterstat.json";
-  //console.log(batter_url);
+  console.log(batter_url);
   
   d3.select('#scatterplot').html('');
   // clear any existing team info
   d3.json(batter_url).then(function(json){
 
-    //console.log(json);
+    console.log(json);
 
     team = json['Tm'];
+
+    function getAllIndexes(arr, val) {
+      var indexes = [], i = -1;
+      while ((i = arr.indexOf(val, i+1)) != -1){
+          indexes.push(i);
+      }
+      return indexes;
+    }
+    
+    function extractAllIndexes(arr, idxs) {
+      var results = [];
+      for(var i = 0; i < idxs.length; i++){
+        results.push(arr[idxs[i]]);
+
+      }
+      return results;
+    }
     
     //console.log(team);
     var team_1_idx = getAllIndexes(team, team1);
-    //console.log(team_1_idx);
+    console.log(team_1_idx);
     var team_2_idx = getAllIndexes(team, team2);
-    //console.log(team_2_idx);
+    console.log(team_2_idx);
 
     var x_1 = extractAllIndexes(json['RBI'], team_1_idx);
     var y_1 = extractAllIndexes(json['HR'], team_1_idx);
@@ -253,10 +250,9 @@ function build3Dscatterplotteam(team1, team2){
     var z_2 = extractAllIndexes(json['H'], team_2_idx);
     var player_2 = extractAllIndexes(json['Player'], team_2_idx);
     
-    //console.log(x_1);
-    //console.log(x_2);
+    console.log(x_1);
+    console.log(x_2);
 
-    // plot.ly make 3D scatter plot
     var team_1_batter_data = {
       name: team1,
       x: x_1, 
@@ -318,138 +314,25 @@ function build3Dscatterplotteam(team1, team2){
   });
 }
 
-// function for standardDeviation
-function standardDeviation(values){
-  var avg = average(values);
-  
-  var squareDiffs = values.map(function(value){
-    var diff = value - avg;
-    var sqrDiff = diff * diff;
-    return sqrDiff;
-  });
-  
-  var avgSquareDiff = average(squareDiffs);
 
-  var stdDev = Math.sqrt(avgSquareDiff);
-  return stdDev;
-}
 
-function average(data){
-  var sum = data.reduce(function(sum, value){
-    return sum + value;
-  }, 0);
 
-  var avg = sum / data.length;
-  return avg;
-}
-function arraymuliply(array1, array2){
-  var results = [];
-  for (i = 0; i< array1.length; i ++){
-    results.push(array1[i]* array2[i]);
-  }
-  return results;
-}
-function arraydivide(array1, array2){
-  var results = [];
-  for (i = 0; i< array1.length; i ++){
-    results.push(array1[i]/array2[i]);
-  }
-  return results;
-}
+
+
 
 // bulid plot for batter
-function buildbarplot(team1, team2){
+function buildpitcherplot(){
   // Create the url for team stat
-  console.log("load batter stat")
-  var pitcher_url = "./baseballstat/pitcherstat.json";
-  console.log(pitcher_url);
+  console.log("load team stat")
+  var team_url = "./baseballstat/pitcherstat.json";
+  console.log(team_url);
   
-  d3.select('#barplot').html('');
-
+  //d3.select('#radarplot').html('');
+  
   // clear any existing team info
-  d3.json(pitcher_url).then(function(json){
-    console.log('start barplot')
-    
-    var start_p = [];
-    var not_start_p = [];
-    json['GS'].map((value, index) => {
-      if (value > 0){
-        start_p.push(index);
-      } else {
-        not_start_p.push(index);
-      }
-    });
-    console.log(start_p);
-    console.log(not_start_p);
-
-    team = json['Tm'];
-    var team_1_idx = getAllIndexes(team, team1);
-    console.log(team_1_idx);
-    var team_2_idx = getAllIndexes(team, team2);
-    console.log(team_2_idx);
-    
-    let team_1_start_p = start_p.filter(v => team_1_idx.includes(v));
-    let team_1_not_start_p = not_start_p.filter(v => team_1_idx.includes(v));
-    let team_2_start_p = start_p.filter(v => team_2_idx.includes(v));
-    let team_2_not_start_p = not_start_p.filter(v => team_2_idx.includes(v));
-
-    var t1_sp_ERA = extractAllIndexes(json['ERA'], team_1_start_p);
-    var t1_nsp_ERA = extractAllIndexes(json['ERA'], team_1_not_start_p);
-    var t2_sp_ERA = extractAllIndexes(json['ERA'], team_2_start_p);
-    var t2_nsp_ERA = extractAllIndexes(json['ERA'], team_2_not_start_p);
-    
-    console.log(t1_sp_ERA);
-    console.log(t1_nsp_ERA);
-    console.log(t2_sp_ERA);
-    console.log(t2_nsp_ERA);
-    
-    t1_sp_ERA_mean = average(t1_sp_ERA);
-    t1_nsp_ERA_mean = average(t1_nsp_ERA);
-    t2_sp_ERA_mean = average(t2_sp_ERA);
-    t2_nsp_ERA_mean = average(t2_nsp_ERA);
-
-    console.log(t1_sp_ERA_mean);
-    console.log(t1_nsp_ERA_mean);
-    console.log(t2_sp_ERA_mean);
-    console.log(t2_nsp_ERA_mean);
-
-    t1_sp_ERA_sem = standardDeviation(t1_sp_ERA) / Math.sqrt(t1_sp_ERA.length);
-    t1_nsp_ERA_sem = standardDeviation(t1_nsp_ERA) / Math.sqrt(t1_nsp_ERA.length);
-    t2_sp_ERA_sem = standardDeviation(t2_sp_ERA) / Math.sqrt(t2_sp_ERA.length);
-    t2_nsp_ERA_sem = standardDeviation(t2_nsp_ERA) / Math.sqrt(t2_nsp_ERA.length);
-
-    console.log(t1_sp_ERA_sem);
-    console.log(t1_nsp_ERA_sem);
-    console.log(t2_sp_ERA_sem);
-    console.log(t2_nsp_ERA_sem);
-
-    // plot.ly make bar plot
-    var trace1 = {
-      x: ['Starting Pitcher', 'Relief Pitcher'],
-      y: [t1_sp_ERA_mean, t1_nsp_ERA_mean],
-      name: team1,
-      error_y: {
-        type: 'data',
-        array: [t1_sp_ERA_sem, t1_nsp_ERA_sem],
-        visible: true
-      },
-      type: 'bar'
-    };
-    var trace2 = {
-      x: ['Starting Pitcher', 'Relief Pitcher'],
-      y: [t2_sp_ERA_mean, t2_nsp_ERA_mean],
-      name: team2,
-      error_y: {
-        type: 'data',
-        array: [t2_sp_ERA_sem, t2_nsp_ERA_sem],
-        visible: true
-      },
-      type: 'bar'
-    };
-    var data = [trace1, trace2];
-    var layout = {barmode: 'group'};
-    Plotly.newPlot('barplot', data, layout);
-
+  d3.json(team_url).then(function(json){
+    console.log(json)
+    team 
   });
 }
 
@@ -482,7 +365,6 @@ function init() {
     buildPanel2(SecondTeam);
     buildradarplot(FirstTeam, SecondTeam);
     build3Dscatterplot();
-    buildbarplot(FirstTeam, SecondTeam);
     
   }); 
   
@@ -494,7 +376,6 @@ function optionChanged_1(newTeam) {
   buildPanel1(showedteamnames[0]);
   buildradarplot(showedteamnames[0], showedteamnames[1]);
   build3Dscatterplotteam(showedteamnames[0], showedteamnames[1]);
-  buildbarplot(showedteamnames[0], showedteamnames[1]);
 }
 
 function optionChanged_2(newTeam) {
@@ -503,7 +384,6 @@ function optionChanged_2(newTeam) {
   buildPanel2(showedteamnames[1]);
   buildradarplot(showedteamnames[0], showedteamnames[1]);
   build3Dscatterplotteam(showedteamnames[0], showedteamnames[1]);
-  buildbarplot(showedteamnames[0], showedteamnames[1]);
 }
 
 function scatterplotreset(){
