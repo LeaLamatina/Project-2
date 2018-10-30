@@ -1,21 +1,35 @@
 # Project 2
 
-Emma, Lea, Jen, Jérôme
+http://mlb-comparative.herokuapp.com/
 
-Project Proposal 
-Project Title:
-**Comparative MLB Statistics Dashboard**
+Emma Li, Lea Lamatina, Jennifer Collins, Jérôme Laforest
 
-Files to Look At:
+# Project Proposal 
+## Project Title:
+Comparative MLB Statistics Dashboard
 
-Talking points in:
+## Files to Look At:
+app_emma.py, app_emma.js
 
-Description: A web app that explores and shows baseball data and statistics for the 2018 ALCS and NLCS teams and a few others. Teams included: Astros, Brewers, Cardinals, Cubs, Dodgers, Red Sox, Yankees
+## Talking points in:
+Comparative Baseball Dashboard.pptx
 
-Data: CSV files pulled from https://www.baseball-reference.com
+## Description:
+A web app that explores and shows baseball data and statistics for the 2018 ALCS and NLCS teams and a few others. Teams included: Arizona Diamonbacks, Atlanta Braves, Chicago Cubs, Cincinatti Reds, Colorado Rockies, Los Angelos Dodgers,  Miami Marlins, Milwaukee Brewers, New York Mets, Philadelphia Phillies, Pittsburgh Pirates, San Diego Padres, San Francisco Giants, Saint Louis Cardinals, Washington Nationals
 
-Techniques and Tools: HTML, CSS, Flask, JavaScript, SQLite, D3, Plotly, Drop.js
+## Data:
+CSV files pulled from https://www.baseball-reference.com
 
-Visualizations: Comparitive Horizontal Bar Graph, Radar Graph, Area (Line) Graph
+## Techniques and Tools:
+HTML, CSS, Flask, JavaScript, SQLite, D3, Plotly, Drop.js
 
-Data Shortcomings: A lot of data to look through to find the relevant stats that apply to our visualizations
+## Visualizations:
+Radar Graph
+![Radar Graph](https://github.com/LeaLamatina/Project-2/Images/RadarGraph.png)
+3D Plot
+![3D Plot](https://github.com/LeaLamatina/Project-2/Images/3DPlot.png)
+Bar Chart
+![Bar Chart](https://github.com/LeaLamatina/Project-2/Images/BarChart.png)
+
+## Data Shortcomings:
+A lot of data to look through to find the relevant stats that apply to our visualizations
