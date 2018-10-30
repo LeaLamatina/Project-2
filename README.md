@@ -25,11 +25,11 @@ HTML, CSS, Flask, JavaScript, SQLite, D3, Plotly, Drop.js
 
 ## Visualizations:
 Radar Graph
-![Radar Graph](https://github.com/LeaLamatina/Project-2/Images/RadarGraph.png)
+![Radar Graph](https://github.com/LeaLamatina/Project-2/blob/master/Images/3DPlot.png)
 3D Plot
-![3D Plot](https://github.com/LeaLamatina/Project-2/Images/3DPlot.png)
+![3D Plot](https://github.com/LeaLamatina/Project-2/blob/master/Images/3DPlot.png)
 Bar Chart
-![Bar Chart](https://github.com/LeaLamatina/Project-2/Images/BarChart.png)
+![Bar Chart](https://github.com/LeaLamatina/Project-2/blob/master/Images/BarChart.png)
 
 ## Data Shortcomings:
 A lot of data to look through to find the relevant stats that apply to our visualizations
