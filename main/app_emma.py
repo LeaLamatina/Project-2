@@ -17,62 +17,6 @@ from flask_sqlalchemy import SQLAlchemy
 # ======================================
 #  Database Setup
 # ======================================
-# app = Flask(__name__)
-# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Resources/baseballdatabase.db"
-# db = SQLAlchemy(app)
-
-# # reflect an existing database into a new model
-# Base = automap_base()
-
-# # reflect the tables
-# Base.prepare(db.engine, reflect=True)
-
-# print('check')
-# # Save references to each table
-# baseBatting = Base.classes.TmStdBatting
-# basePitching= Base.classes.TmStdPitching
-
-
-
-# TeamSalaries = Base.classes.TmSalaries
-
-# # connecting app to homepage
-# @app.route("/")
-# def index():
-#   return render_template("index.html")
-
-# @app.route("/teams")
-# def teams():
-#   stmt = db.session.query(baseBatting).statement
-#   df = pd.read_sql_query(stmt, db.session.bind)
-#   # return a list of the teamnames
-#   return jsonify(list(df['Tm'][0:len(df)-1]))
-
-# @app.route("/baseball/<team>")
-# def BaseBatting(team):
-#   sel = [
-#     baseBatting.Tm,
-#     baseBatting.BA,
-#     baseBatting.OBP,
-#     baseBatting.SLG,
-#     baseBatting.OPS,
-    
-#   ]
-  
-#   results = db.session.query(*sel).filter(baseBatting.Tm == team).all()
-
-#   baseballbatting_data= {}
-#   for result in results:
-#     baseballbatting_data["Tm"] = result[0]
-#     baseballbatting_data["BA"] = result[1]
-#     baseballbatting_data["OBP"] = result[2]
-#     baseballbatting_data["SLG"] = result[3]
-#     baseballbatting_data["OPS"] = result[4]
-    
-
-#   print(baseballbatting_data)
-#   return jsonify(baseballbatting_data)
-
 
 # if __name__ == "__main__":
 #   app.run() 
@@ -121,7 +65,7 @@ def BASEBALLtest(team):
     baseballteam_data["start_year"] = result[2]
     baseballteam_data["world_championships"] = result[3]
 
-  print(baseballteam_data)
+  # print(baseballteam_data)
   return jsonify(baseballteam_data)
 
 # Team Stats
@@ -131,18 +75,18 @@ def baseballteamstat():
   df = pd.read_sql_query(stmt, db.session.bind)
   # return a list of the teamnames
   
-  print(df.columns.values)
-  print(df.shape[1])
+  # print(df.columns.values)
+  # print(df.shape[1])
 
   baseballteam_data= {}
   for i in range(df.shape[1]):
-    print(i)
+    # print(i)
     colname = df.columns.values[i]
-    print(colname)
-    print(list(df[colname]))
+    # print(colname)
+    # print(list(df[colname]))
     baseballteam_data[colname] = list(df[colname])
   
-  print(baseballteam_data)
+  # print(baseballteam_data)
   return jsonify(baseballteam_data)
 
 # Batter Stats
@@ -152,15 +96,15 @@ def baseballbatterstat():
   df = pd.read_sql_query(stmt, db.session.bind)
   # return a list of the teamnames
   
-  print(df.columns.values)
-  print(df.shape[1])
+  # print(df.columns.values)
+  # print(df.shape[1])
 
   baseballbatter_data= {}
   for i in range(df.shape[1]):
-    print(i)
+    # print(i)
     colname = df.columns.values[i]
-    print(colname)
-    print(list(df[colname]))
+    # print(colname)
+    # print(list(df[colname]))
     baseballbatter_data[colname] = list(df[colname])
   
   print(baseballbatter_data)
@@ -178,10 +122,10 @@ def baseballpitcherstat():
 
   baseballpitcher_data= {}
   for i in range(df.shape[1]):
-    print(i)
+    # print(i)
     colname = df.columns.values[i]
-    print(colname)
-    print(list(df[colname]))
+    # print(colname)
+    # print(list(df[colname]))
     baseballpitcher_data[colname] = list(df[colname])
   
   print(baseballpitcher_data)
