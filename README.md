@@ -25,7 +25,7 @@ HTML, CSS, Flask, JavaScript, SQLite, D3, Plotly, Drop.js
 
 ## Visualizations:
 Radar Graph
-![Radar Graph](https://github.com/LeaLamatina/Project-2/blob/master/Images/3DPlot.png)
+![Radar Graph](https://github.com/LeaLamatina/Project-2/blob/master/Images/RadarGraph.png)
 3D Plot
 ![3D Plot](https://github.com/LeaLamatina/Project-2/blob/master/Images/3DPlot.png)
 Bar Chart
